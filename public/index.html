@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planner Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Event Planner Pro</span>
+        </div>
+        <nav>
+            <a href="#calendar" class="active"><i class="fas fa-calendar"></i> Calendar</a>
+            <a href="#attendees"><i class="fas fa-users"></i> Attendees</a>
+            <a href="#venues"><i class="fas fa-map-marker-alt"></i> Venues</a>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <header>
+            <div class="current-date">
+                <h2>Event Calendar</h2>
+            </div>
+            <div class="user-actions">
+                <button class="new-event-btn" id="new-event-btn">
+                    <i class="fas fa-plus"></i> New Event
+                </button>
+            </div>
+        </header>
+
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                <h3></h3>
+                <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="calendar-grid"></div>
+        </div>
+
+        <section class="attendee-section" id="attendees">
+            <h2><i class="fas fa-users"></i> Attendee Management</h2>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="attendee-email" placeholder="Add attendee email">
+                </div>
+                <button id="add-attendee">
+                    <i class="fas fa-plus"></i> Add Attendee
+                </button>
+            </div>
+            <div class="attendee-list-container">
+                <ul id="attendee-list"></ul>
+            </div>
+        </section>
+
+        <section class="venue-section" id="venues">
+            <h2><i class="fas fa-map-marker-alt"></i> Available Venues</h2>
+            <div id="venue-results" class="venue-grid">
+                <div class="loading">Loading venues...</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for New Event -->
+    <div class="modal" id="event-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-calendar-plus"></i> Create New Event</h2>
+            <form id="event-form">
+                <div class="form-group">
+                    <label><i class="fas fa-heading"></i> Event Title</label>
+                    <input type="text" id="event-title" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar"></i> Date</label>
+                    <input type="date" id="event-date" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-clock"></i> Time</label>
+                    <input type="time" id="event-time" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Selected Venue</label>
+                    <input type="text" id="event-venue" readonly>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-align-left"></i> Description</label>
+                    <textarea id="event-description"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-check"></i> Create Event
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/js/app.js"></script>
+</body>
+</html>
