@@ -1,0 +1,17 @@
+{
+    "name": "event-planner",
+    "version": "1.0.0",
+    "description": "Modern Event Planner Application",
+    "scripts": {
+      "build": "npm run build:functions",
+      "build:functions": "cd netlify/functions && npm install",
+      "start": "netlify dev",
+      "dev": "netlify dev"
+    },
+    "dependencies": {
+      "netlify-cli": "^12.0.0"
+    },
+    "devDependencies": {},
+    "author": "",
+    "license": "ISC"
+  }
